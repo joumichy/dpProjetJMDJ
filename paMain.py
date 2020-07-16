@@ -29,6 +29,7 @@ def load_dataset():
     pathTest = "./dataset/test/"
 
     for file in os.listdir(pathTrain+"hotdog/"):
+
         Ximgs.append(
             np.array(Image.open(pathTrain+f"hotdog/{file}").resize(target_resolution).convert('L')) / 255.0)
         y_train.append([1, 0, 0, 0])
@@ -164,8 +165,8 @@ if __name__ == "__main__":
     print(x_test.shape)
     print(y_test.shape)
 
-    model = create_linear_model()
-    # model = create_mlp_model()
+    #model = create_linear_model()
+    model = create_mlp_model()
     # model = create_conv_nn_model()
     # model = create_dense_res_nn_model()
     # model = create_dense_u_nn_model()
@@ -184,7 +185,7 @@ if __name__ == "__main__":
     print(f'Train Acc : {model.evaluate(x_train, y_train)[1]}')
     print(f'Test Acc : {model.evaluate(x_test, y_test)[1]}')
 
-    logs = model.fit(x_train, y_train, batch_size=16, epochs=50, verbose=0, validation_data=(x_test, y_test),
+    logs = model.fit(x_train, y_train, batch_size=16, epochs=120, verbose=0, validation_data=(x_test, y_test),
                      callbacks=[TensorBoard()])
 
     model.summary()
