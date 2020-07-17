@@ -19,9 +19,10 @@ Si vous  désirez détecter une image en fonction d'un model en particulier, il 
 à la place du TAG actuel (TAG_MLP)
 
 liste des models proposés :
+
     - TAG_MLP
     - TAG_DENSE_RES_NN
-    -TAG_DENSE_U_NN
+    - TAG_DENSE_U_NN
     - TAG_CNN
     - TAG_LINEAR
 
