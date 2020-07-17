@@ -20,7 +20,8 @@ Si vous  désirez détecter une image en fonction d'un model en particulier, il 
 
 liste des models proposés :
     - TAG_MLP
-    - TAG_DENSE_RES_NN,TAG_DENSE_U_NN
+    - TAG_DENSE_RES_NN
+    -TAG_DENSE_U_NN
     - TAG_CNN
     - TAG_LINEAR
 
