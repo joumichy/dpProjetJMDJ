@@ -1,17 +1,17 @@
-## Fast Food Detector
+# Fast Food Detector
 
-# Summary
+## Summary
 Ce présent document représente le Readme du front de l'application du groupe 7 4AL projet de Deep Learning 2019-2020.
 Cette application permet de réaliser les différents Model proposé dans le fichier "modelGenerator.py"
 Ainsi que de détecter des plats de fast foods suite à une image insérrée par l'utilisateur.
 
-# Installation
+## Installation
 
 Afin d'utiliser l'application, clonez ce dernier projet en veillant d'avoir tensorflow (Lien : https://www.tensorflow.org/install/pip?hl=fr)
-Vous aurez également besoin de la librairie OpenCV : (Lien :https://pypi.org/project/opencv-python/)
-Enfin, la lbrairies PILLOW est également nécessaire : (Lien :https://pypi.org/project/Pillow/)
+Vous aurez également besoin de la librairie OpenCV  (Lien : https://pypi.org/project/opencv-python/)
+Enfin, la lbrairies PILLOW est également nécessaire (Lienh : ttps://pypi.org/project/Pillow/)
 
-# Utilisation de l'application (Detection d'image)
+## Utilisation de l'application (Detection d'image)
 
 Modification à effectuer dans le fichier : modelGenerator.py
 
@@ -33,7 +33,7 @@ liste des models proposés :
 
  Enfin, il vous sufit ensuite de lancer l'application. (Commande à exéctuer :python mainClass.py)
  
- # Utilisation de l'application (Conception d'un model)
+ ## Utilisation de l'application (Conception d'un model)
  
  Modification à effectuer dans le fichier : modelGenerator.py
  
@@ -61,7 +61,7 @@ liste des models proposés :
  
  il vous sufit ensuite de lancer l'application. (Commande à exéctuer :python modelGenerator.py)
  
-  #Utilisation de l'application (Conception d'un model de type dit "Augmenté")
+  ## Utilisation de l'application (Conception d'un model de type dit "Augmenté")
  
  Modification à effectuer dans le fichier : modelGenerator.py
  
