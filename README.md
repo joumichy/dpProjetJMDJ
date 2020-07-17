@@ -90,7 +90,16 @@ liste des models proposés :
  
  il vous sufit ensuite de lancer l'application. (*Commande à exéctuer* : **python modelGenerator.py**)
  
+ 
  Une fois votre model generé, un graphique s'affichera avec des courbes représentants l'accuracy et les loss pour le model entrainer ainsi que pour ses tests.
+ 
+ ## Visualisation Tensorboard
+ 
+ *Commande à exéctuer* : **tensorboard.bat**
+ 
+ Vous pouvez également visualiser en local les statistiques de vos models en éxécutant la commande ci dessus, vous pouvez vous rendre au lien :  http://localhost:6006/#scalars afin de consulter
+ vos différents models entrainées. 
+ Cet outil propose une visualisation plus avancées de la conceptions de vos models.
 
 
  Enjoy!
