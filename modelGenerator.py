@@ -17,28 +17,32 @@ from tensorflow.keras.optimizers import SGD
 from tensorflow.keras.losses import mean_squared_error
 from tensorflow.keras.preprocessing.image import  ImageDataGenerator
 import tensorflow.keras as keras
-from sklearn.metrics import confusion_matrix
 from datetime import datetime
 import matplotlib.pyplot as plt
-import cv2
-from imageTraitor import  color_treatment
+
 from fileImageLoader import  load_dataset
 
+
+#========================MODEL PARAMETER=====================
 target_resolution = (64, 64)
 numberOfType = 4
 epochs = 500
+#============================================================
 
-TAG_MLP = "mlpmodel.keras"
-TAG_LINEAR = "linearmodel.keras"
-TAG_DENSE_RES_NN = "denseresnnmodel.keras"
-TAG_DENSE_U_NN  = "denseunnmodel.keras"
-TAG_CNN  = "cnn.keras"
+#========================MODELS NAME=========================
+#TAG_MLP = "mlpmodel.keras"
+#TAG_LINEAR = "linearmodel.keras"
+#TAG_DENSE_RES_NN = "denseresnnmodel.keras"
+#TAG_DENSE_U_NN  = "denseunnmodel.keras"
+#TAG_CNN  = "cnn.keras"
 
 TAG_MLP_AUGMENTOR = "mlpmodelAugemntor.keras"
 TAG_LINEAR_AUGMENTOR = "linearmodelAugemntor.keras"
 TAG_DENSE_RES_NN_AUGMENTOR = "denseresnnmodelAugemntor.keras"
 TAG_DENSE_U_NN_AUGMENTOR = "denseunnmodelAugemntor.keras"
 TAG_CNN_AUGMENTOR = "cnnAugemntor.keras"
+#============================================================
+
 
 def create_linear_model():
     model = Sequential()
@@ -129,8 +133,9 @@ def create_dense_u_nn_model():
     return model
 
 def createDataAugmentor(x_train, y_train) :
-    datagen = ImageDataGenerator(rotation_range= 90, zoom_range=[0.5,1.0])
-    it = datagen.flow(x_train, y_train, batch_size=1)
+    datagen = ImageDataGenerator(rotation_range= 90,
+                                 zoom_range=[0.5,1.0], width_shift_range=[-32,32])
+    it = datagen.flow(x_train, y_train, batch_size=16)
 
     return it
 
@@ -145,26 +150,26 @@ if __name__ == "__main__":
 
     it_train = createDataAugmentor(x_train, y_train)
 
-    model = create_linear_model()
+    #model = create_linear_model()
     #model = create_mlp_model()
     #model = create_conv_nn_model()
     #model = create_dense_res_nn_model()
-    #model = create_dense_u_nn_model()
+    model = create_dense_u_nn_model()
 
     model.build(x_train.shape)
 
     model.summary()
 
 
-    print(f'Train Acc : {model.evaluate(x_train, y_train)[1]}')
-    print(f'Test Acc : {model.evaluate(x_test, y_test)[1]}')
+#    print(f'Train Acc : {model.evaluate(x_train, y_train)[1]}')
+#    print(f'Test Acc : {model.evaluate(x_test, y_test)[1]}')
 
-    logdir = "logs/scalars/" + datetime.now().strftime("%Y-%m-%d-%H%M%S")+"AUGMENTED_LINEAR500"
+    logdir = "logs/scalars/" + datetime.now().strftime("%Y-%m-%d-%H%M%S")+"AUGMENTED_DENSEUNN_500"
     tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
 
 
     logs  = model.fit_generator(it_train, validation_data= (x_test, y_test),
-                    steps_per_epoch=len(x_train) / 12, epochs=epochs,callbacks=tensorboard_callback)
+                    steps_per_epoch=len(x_train) / 16, epochs=epochs,callbacks=tensorboard_callback)
 
     for e in range(epochs):
         print('Epoch', e)
@@ -184,9 +189,9 @@ if __name__ == "__main__":
     print(logs.history.keys())
 
 
-    tag_name = TAG_LINEAR_AUGMENTOR
+    tag_name = TAG_DENSE_U_NN_AUGMENTOR
 
-    #model.save(f"./models/{tag_name}")
+    model.save(f"./models/{tag_name}")
 
     fig, (ax0, ax1) = plt.subplots(nrows=2, constrained_layout=True)
 
