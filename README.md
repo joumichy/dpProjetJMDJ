@@ -19,7 +19,7 @@ Liens librairies :
 
 ## Utilisation de l'application (Detection d'image)
 
-Modification à effectuer dans le fichier : modelGenerator.py
+Modification à effectuer dans le fichier : mainClass.py
 
 Si vous  désirez détecter une image en fonction d'un model en particulier, il vous suffit d'insérer l'un des tag proposé dans le fichier à la ligne 167
 à la place du TAG actuel (TAG_MLP)
