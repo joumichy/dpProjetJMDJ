@@ -37,7 +37,7 @@ liste des models proposés :
     - TAG_LINEAR_AUGMENTOR
     - TAG_DENSE_U_NN_AUGMENTOR
 
- Enfin, il vous sufit ensuite de lancer l'application. (Commande à exéctuer :python mainClass.py)
+ Enfin, il vous sufit ensuite de lancer l'application. (*Commande à exéctuer* : **python mainClass.py**)
  
  ## Utilisation de l'application (Conception d'un model)
  
@@ -65,7 +65,7 @@ liste des models proposés :
     - TAG_CNN
     - TAG_LINEAR
  
- il vous sufit ensuite de lancer l'application. (Commande à exéctuer :python modelGenerator.py)
+ il vous sufit ensuite de lancer l'application. (*Commande à exéctuer* : **python modelGenerator.py**)
  
   ## Utilisation de l'application (Conception d'un model de type dit "Augmenté")
  
@@ -88,7 +88,7 @@ liste des models proposés :
     - TAG_LINEAR_AUGMENTOR
     - TAG_DENSE_U_NN_AUGMENTOR
  
- il vous sufit ensuite de lancer l'application. (Commande à exéctuer :python modelGenerator.py)
+ il vous sufit ensuite de lancer l'application. (*Commande à exéctuer* : **python modelGenerator.py**)
  
  Une fois votre model generé, un graphique s'affichera avec des courbes représentants l'accuracy et les loss pour le model entrainer ainsi que pour ses tests.
 
