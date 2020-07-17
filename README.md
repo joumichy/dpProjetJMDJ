@@ -7,9 +7,14 @@ Ainsi que de détecter des plats de fast foods suite à une image insérrée par
 
 ## Installation
 
-Afin d'utiliser l'application, clonez ce dernier projet en veillant d'avoir tensorflow (Lien : https://www.tensorflow.org/install/pip?hl=fr)
-Vous aurez également besoin de la librairie OpenCV  (Lien : https://pypi.org/project/opencv-python/)
-Enfin, la lbrairies PILLOW est également nécessaire (Lienh : ttps://pypi.org/project/Pillow/)
+Afin d'utiliser l'application, clonez ce dernier projet en veillant d'avoir tensorflow.
+Vous aurez également besoin de la librairie OpenCV.
+Enfin, la librairie PILLOW est également nécessaire.
+
+Liens librairies : 
+    - TensorFlow : Lien : https://www.tensorflow.org/install/pip?hl=fr
+    - OpenCV :  https://pypi.org/project/opencv-python/
+    - Pillow :  ttps://pypi.org/project/Pillow
 
 ## Utilisation de l'application (Detection d'image)
 
