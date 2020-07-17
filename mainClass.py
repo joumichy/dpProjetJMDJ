@@ -10,7 +10,7 @@ import tensorflow.keras.models
 def accueil():
 
     print("===========================")
-    print("==========BIENVENU=========")
+    print("==========BIENVENUE=========")
     print("===========================\n")
 
 def print_result(pred_HotDog, pred_Burger, pred_Pizza, pred_Tacos):
@@ -28,8 +28,6 @@ if __name__ == '__main__':
     model = load_model(f"./models/{model_name}")
     model.summary()
     accueil()
-
-
 
     imageFile = selectFile()
     image = cv2.imread(imageFile)
@@ -51,6 +49,5 @@ if __name__ == '__main__':
                  prediction_Burger,
                  prediction_Pizza,
                  prediction_Tacos)
-
 
 

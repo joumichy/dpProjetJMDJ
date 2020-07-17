@@ -30,11 +30,11 @@ epochs = 500
 #============================================================
 
 #========================MODELS NAME=========================
-#TAG_MLP = "mlpmodel.keras"
-#TAG_LINEAR = "linearmodel.keras"
-#TAG_DENSE_RES_NN = "denseresnnmodel.keras"
-#TAG_DENSE_U_NN  = "denseunnmodel.keras"
-#TAG_CNN  = "cnn.keras"
+TAG_MLP = "mlpmodel.keras"
+TAG_LINEAR = "linearmodel.keras"
+TAG_DENSE_RES_NN = "denseresnnmodel.keras"
+TAG_DENSE_U_NN  = "denseunnmodel.keras"
+TAG_CNN  = "cnn.keras"
 
 TAG_MLP_AUGMENTOR = "mlpmodelAugemntor.keras"
 TAG_LINEAR_AUGMENTOR = "linearmodelAugemntor.keras"
@@ -73,7 +73,7 @@ def create_conv_nn_model():
     model.add(MaxPool2D((2, 2)))
 
     model.add(Conv2D(16, (3, 3), padding='same', activation=relu ))
-    # model.add(MaxPool2D((2, 2)))
+
 
     model.add(Flatten())
     model.add(Dense(64, activation=tanh))
@@ -143,32 +143,29 @@ if __name__ == "__main__":
 
     (x_train, y_train), (x_test, y_test) = load_dataset()
 
+
     print(x_train.shape)
     print(y_train.shape)
     print(x_test.shape)
     print(y_test.shape)
 
+
     it_train = createDataAugmentor(x_train, y_train)
 
     #model = create_linear_model()
-    #model = create_mlp_model()
+    model = create_mlp_model()
     #model = create_conv_nn_model()
     #model = create_dense_res_nn_model()
-    model = create_dense_u_nn_model()
+    #model = create_dense_u_nn_model()
 
     model.build(x_train.shape)
 
     model.summary()
-
-
-#    print(f'Train Acc : {model.evaluate(x_train, y_train)[1]}')
-#    print(f'Test Acc : {model.evaluate(x_test, y_test)[1]}')
-
     logdir = "logs/scalars/" + datetime.now().strftime("%Y-%m-%d-%H%M%S")+"AUGMENTED_DENSEUNN_500"
     tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
 
-
-    logs  = model.fit_generator(it_train, validation_data= (x_test, y_test),
+    """
+    logs  = model.fit_generator(it_train, validation_data= (x_test, y_test), validation_steps= len(x_test)/16,
                     steps_per_epoch=len(x_train) / 16, epochs=epochs,callbacks=tensorboard_callback)
 
     for e in range(epochs):
@@ -181,10 +178,11 @@ if __name__ == "__main__":
                 # we need to break the loop by hand because
                 # the generator loops indefinitely
                 break
+    """
 
 
-    #logs = model.fit(x_train, y_train, epochs=epochs, batch_size=16, validation_data=(x_test, y_test),
-    #callbacks=[tensorboard_callback])
+    logs = model.fit(x_train, y_train, epochs=epochs, batch_size=16, validation_data=(x_test, y_test),
+    callbacks=[tensorboard_callback])
 
     print(logs.history.keys())
 

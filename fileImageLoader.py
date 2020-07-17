@@ -1,4 +1,5 @@
 import tkinter as tk
+from PIL import Image
 from tkinter import filedialog
 from imageTraitor import  color_treatment
 import cv2
@@ -31,14 +32,16 @@ def load_dataset():
             selectedImage = cv2.imread(pathTrain + f"hotdog/{file}")
             resized_image = cv2.resize(selectedImage, target_resolution)
             masque = color_treatment(resized_image)
+
+            # image = Image.open(pathTrain+f"hotdog/{file}").resize(target_resolution).convert('RGB')
+            # Ximgs.append( np.array(image) / 255.0)
+
             Ximgs.append(masque / 255.0)
             y_train.append([1, 0, 0, 0])
         except Exception as e:
             pass
 
-        # image = Image.open(pathTrain+f"hotdog/{file}").resize(target_resolution).convert('RGB')
 
-        # Ximgs.append( np.array(image) / 255.0)
 
     for file in os.listdir(pathTrain + "burger/"):
         try:
@@ -47,7 +50,7 @@ def load_dataset():
             masque = color_treatment(resized_image)
             Ximgs.append(masque / 255.0)
 
-            # Ximgs.append(np.array(Image.open(pathTrain+f"burger/{file}").resize(target_resolution).convert('RGB')) / 255.0)
+            #Ximgs.append(np.array(Image.open(pathTrain+f"burger/{file}").resize(target_resolution).convert('RGB')) / 255.0)
             y_train.append([0, 1, 0, 0])
 
         except Exception as e:
@@ -73,7 +76,7 @@ def load_dataset():
             masque = color_treatment(resized_image)
             Ximgs.append(masque / 255.0)
 
-            # Ximgs.append(np.array(Image.open(pathTrain+f"tacos/{file}").resize(target_resolution).convert('RGB')) / 255.0)
+            #Ximgs.append(np.array(Image.open(pathTrain+f"tacos/{file}").resize(target_resolution).convert('RGB')) / 255.0)
             y_train.append([0, 0, 0, 1])
 
         except Exception as e:
@@ -87,7 +90,7 @@ def load_dataset():
             masque = color_treatment(resized_image)
             Ximgs_test.append(masque / 255.0)
 
-            # Ximgs_test.append(  np.array(Image.open(pathTest+f"hotdog/{file}").resize(target_resolution).convert('RGB')) / 255.0)
+            #Ximgs_test.append(  np.array(Image.open(pathTest+f"hotdog/{file}").resize(target_resolution).convert('RGB')) / 255.0)
             y_test.append([1, 0, 0, 0])
 
         except Exception as e:
@@ -99,7 +102,7 @@ def load_dataset():
             masque = color_treatment(resized_image)
             Ximgs_test.append(masque / 255.0)
 
-            # Ximgs_test.append( np.array(Image.open(pathTest+f"burger/{file}").resize(target_resolution).convert('RGB')) / 255.0)
+            #Ximgs_test.append( np.array(Image.open(pathTest+f"burger/{file}").resize(target_resolution).convert('RGB')) / 255.0)
             y_test.append([0, 1, 0, 0])
 
         except Exception as e:
@@ -112,7 +115,7 @@ def load_dataset():
             masque = color_treatment(resized_image)
             Ximgs_test.append(masque / 255.0)
 
-            # Ximgs_test.append( np.array(Image.open(pathTest+f"pizza/{file}").resize(target_resolution).convert('RGB')) / 255.0)
+            #Ximgs_test.append( np.array(Image.open(pathTest+f"pizza/{file}").resize(target_resolution).convert('RGB')) / 255.0)
             y_test.append([0, 0, 1, 0])
 
         except Exception as e:
@@ -125,7 +128,7 @@ def load_dataset():
             masque = color_treatment(resized_image)
             Ximgs_test.append(masque / 255.0)
 
-            # Ximgs_test.append( np.array(Image.open(pathTest + f"tacos/{file}").resize(target_resolution).convert('RGB')) / 255.0)
+            #Ximgs_test.append( np.array(Image.open(pathTest + f"tacos/{file}").resize(target_resolution).convert('RGB')) / 255.0)
             y_test.append([0, 0, 0, 1])
 
         except Exception as e:
