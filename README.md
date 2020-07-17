@@ -12,6 +12,7 @@ Vous aurez également besoin de la librairie OpenCV.
 Enfin, la librairie PILLOW est également nécessaire.
 
 Liens librairies : 
+
     - TensorFlow https://www.tensorflow.org/install/pip?hl=fr
     - OpenCV     https://pypi.org/project/opencv-python/
     - Pillow     https://pypi.org/project/Pillow
