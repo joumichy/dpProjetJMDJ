@@ -5,6 +5,18 @@ Ce présent document représente le Readme du front de l'application du groupe 7
 Cette application permet de réaliser les différents Model proposé dans le fichier "modelGenerator.py" et "modelGeneratorAugmented.py"
 Ainsi que de détecter des plats de fast foods suite à une image insérrée par l'utilisateur.
 
+## Traitement d'image
+
+Noter dataset est composé de 4 catégories : 
+
+    - Hotdog
+    - Burger
+    - Pizza
+    - Tacos
+    
+Nous utilisons les librairies Pillow et plus particulièrement OpenCV afin de traiter les images du dataset. De cette façon nous optimisons la définition de ces classes
+en éléminant une partie des bruits présentes dans les images téléchargées.
+
 ## Installation
 
 Afin d'utiliser l'application, clonez ce dernier projet en veillant d'avoir tensorflow.
