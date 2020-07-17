@@ -35,12 +35,6 @@ TAG_LINEAR = "linearmodel.keras"
 TAG_DENSE_RES_NN = "denseresnnmodel.keras"
 TAG_DENSE_U_NN  = "denseunnmodel.keras"
 TAG_CNN  = "cnn.keras"
-
-TAG_MLP_AUGMENTOR = "mlpmodelAugemntor.keras"
-TAG_LINEAR_AUGMENTOR = "linearmodelAugemntor.keras"
-TAG_DENSE_RES_NN_AUGMENTOR = "denseresnnmodelAugemntor.keras"
-TAG_DENSE_U_NN_AUGMENTOR = "denseunnmodelAugemntor.keras"
-TAG_CNN_AUGMENTOR = "cnnAugemntor.keras"
 #============================================================
 
 
@@ -164,32 +158,16 @@ if __name__ == "__main__":
     logdir = "logs/scalars/" + datetime.now().strftime("%Y-%m-%d-%H%M%S")+"AUGMENTED_DENSEUNN_500"
     tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
 
-    """
-    logs  = model.fit_generator(it_train, validation_data= (x_test, y_test), validation_steps= len(x_test)/16,
-                    steps_per_epoch=len(x_train) / 16, epochs=epochs,callbacks=tensorboard_callback)
-
-    for e in range(epochs):
-        print('Epoch', e)
-        batches = 0
-        for x_batch, y_batch in it_train:
-            model.fit(x_batch, y_batch,verbose= 0)
-            batches += 1
-            if batches >= len(x_train) / 32:
-                # we need to break the loop by hand because
-                # the generator loops indefinitely
-                break
-    """
-
-
     logs = model.fit(x_train, y_train, epochs=epochs, batch_size=16, validation_data=(x_test, y_test),
     callbacks=[tensorboard_callback])
 
     print(logs.history.keys())
 
 
-    tag_name = TAG_DENSE_U_NN_AUGMENTOR
+    tag_name = TAG_MLP
 
     model.save(f"./models/{tag_name}")
+    print(f"Model Augmenté enregistré ! \n nom du model : {tag_name}")
 
     fig, (ax0, ax1) = plt.subplots(nrows=2, constrained_layout=True)
 

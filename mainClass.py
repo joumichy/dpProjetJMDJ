@@ -1,10 +1,18 @@
 from fileImageLoader import  selectFile
-from modelGenerator import  TAG_MLP
+from modelGenerator import  TAG_MLP,\
+    TAG_DENSE_RES_NN,TAG_DENSE_U_NN,\
+    TAG_CNN, \
+    TAG_LINEAR
 from tensorflow.keras.models import  load_model
 import  cv2
 import time
 import numpy as np
 import tensorflow.keras.models
+from modelGeneratorAugmented import TAG_DENSE_U_NN_AUGMENTOR,\
+    TAG_LINEAR_AUGMENTOR,\
+    TAG_MLP_AUGMENTOR,\
+    TAG_CNN_AUGMENTOR,\
+    TAG_DENSE_RES_NN_AUGMENTOR
 
 
 def accueil():
@@ -24,7 +32,9 @@ def print_result(pred_HotDog, pred_Burger, pred_Pizza, pred_Tacos):
 if __name__ == '__main__':
 
     resolution = (64,64)
+    #=========INSET TAG =========
     model_name = TAG_MLP
+    #===========================
     model = load_model(f"./models/{model_name}")
     model.summary()
     accueil()
