@@ -95,4 +95,4 @@ liste des models proposés :
 
  Enjoy!
  
- Auteur : Groupe 7 ESGI 4AL 2019-2020 (ALLOU John, GHALEM Marc, TRAORE Djadji, CHATELIN Joseph).
+ Auteur : Groupe 7 ESGI 4AL1 2019-2020 (ALLOU John, GHALEM Marc, TRAORE Djadji, CHATELIN Joseph).
