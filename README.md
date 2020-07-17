@@ -12,9 +12,9 @@ Vous aurez également besoin de la librairie OpenCV.
 Enfin, la librairie PILLOW est également nécessaire.
 
 Liens librairies : 
-    - TensorFlow : Lien : https://www.tensorflow.org/install/pip?hl=fr
-    - OpenCV :  https://pypi.org/project/opencv-python/
-    - Pillow :  ttps://pypi.org/project/Pillow
+    - TensorFlow https://www.tensorflow.org/install/pip?hl=fr
+    - OpenCV     https://pypi.org/project/opencv-python/
+    - Pillow     https://pypi.org/project/Pillow
 
 ## Utilisation de l'application (Detection d'image)
 
