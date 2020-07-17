@@ -2,7 +2,7 @@
 
 ## Summary
 Ce présent document représente le Readme du front de l'application du groupe 7 4AL projet de Deep Learning 2019-2020.
-Cette application permet de réaliser les différents Model proposé dans le fichier "modelGenerator.py"
+Cette application permet de réaliser les différents Model proposé dans le fichier "modelGenerator.py" et "modelGeneratorAugmented.py"
 Ainsi que de détecter des plats de fast foods suite à une image insérrée par l'utilisateur.
 
 ## Installation
